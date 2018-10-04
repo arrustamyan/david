@@ -9,10 +9,15 @@
 </head>
 <body>
 
-    <canvas id="main"></canvas>
+    <canvas id="main" width=500 height=300></canvas>
 
     <script type="module">
-        import('./scripts/index.js');
+        import Game from './scripts/game/game.js';
+
+        let game = new Game(document.getElementById('main'));
+        game.initialize();
     </script>
+
+
 </body>
 </html>
