@@ -4,6 +4,7 @@ import LinearMove from '../motions/linearMove.js';
 
 export default class Clouds extends GameObject {
     async initialize(canvas, context) {
+        console.log('init');
         this.clouds = [];
         this.motion = new LinearMove(0.02);
         return;
@@ -26,6 +27,7 @@ export default class Clouds extends GameObject {
     }
 
     update(delta, canvas, context) {
+        console.log('update');
         this.clouds.forEach(cloud => {
             let [x, y] = this.motion.getNextStep(delta);
             cloud.x += x;

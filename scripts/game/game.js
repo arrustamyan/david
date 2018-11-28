@@ -1,4 +1,4 @@
-import Level1 from '../levels/level1.js';
+import Clouds from '../objects/clouds.js';
 
 export default class Game {
     constructor(canvas) {
@@ -6,6 +6,18 @@ export default class Game {
         this.context = canvas.getContext('2d');
 
         this.lastT = 0;
+
+        this.initializeObjects();
+    }
+
+    initializeObjects() {
+        this.objects = [
+            new Clouds(),
+        ];
+
+        for(let object of this.objects) {
+            object.initialize();
+        }
     }
 
     async start() {
@@ -16,6 +28,17 @@ export default class Game {
         let delta = t - this.lastT;
         this.lastT = t;
 
-        requestAnimationFrame((t) => this.update(t));
+        for (let object of this.objects) {
+            object.update(delta, this.canvas, this.context);
+        }
+
+        requestAnimationFrame((t) => {
+            this.update(t);
+            this.drawProgress(t);
+        });
+    }
+
+    drawProgress(t) {
+        // draw the progress points
     }
 }
