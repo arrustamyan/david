@@ -4,8 +4,6 @@ import GameObject from './object.js';
 
 export default class David extends GameObject {
     async initialize() {
-        console.log('initializing David');
-        this.motion = new LinearMove();
         return;
     }
 
@@ -18,9 +16,9 @@ export default class David extends GameObject {
     }
 
     draw(context) {
-        let { x, y, width, height } = this;
-        context.fillStyle = 'green';
-        context.fillRect(x, y, width, height);
+        // let { x, y, width, height } = this;
+        // context.fillStyle = 'green';
+        // context.fillRect(x, y, width, height);
     }
 
     update(delta, canvas, context) {

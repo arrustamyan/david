@@ -1,5 +1,6 @@
 export default class LinearMotion {
-    constructor() {
+    constructor(speed) {
+        this.speed = speed;
         this.currentStep = 0;
         this.lastStep = 2000;
         this.distance = 300;
@@ -7,12 +8,7 @@ export default class LinearMotion {
 
     getNextStep(delta) {
         this.currentStep += delta;
-        let progress = (100 * this.currentStep) / this.lastStep;
-        if (progress <= 50) {
-            return [0, -1];
-        } else {
-            return [0, 1];
-        }
+        return [-1, 0];
     }
 
     done() {
